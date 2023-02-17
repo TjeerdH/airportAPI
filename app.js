@@ -25,8 +25,8 @@ async function getWeather(ap) {
             Authorization: "BEARER " + token
         }
     })
-    const taf = { taf: tafData.data.raw }
-    const metar = { metar: metarData.data.raw }
+    const taf = tafData.data.raw
+    const metar = metarData.data.raw
     const weather = [metar, taf]
     return weather
 }
@@ -45,8 +45,6 @@ app.use((err, req, res, next) => {
     const { status, msg, body } = err
     res.status(status).send(msg)
 })
-
-getWeather("ams")
 
 const port = process.env.PORT || 4000
 app.listen(port)
