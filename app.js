@@ -25,8 +25,8 @@ async function getWeather(ap) {
             Authorization: "BEARER " + token
         }
     })
-    const taf = { taf: tafData.data.raw }
-    const metar = { metar: metarData.data.raw }
+    const taf = tafData.data.raw
+    const metar = metarData.data.raw
     const weather = [metar, taf]
     return weather
 }
